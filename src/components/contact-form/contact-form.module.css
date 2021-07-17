@@ -1,0 +1,154 @@
+.container {
+    position: relative;
+
+    padding: 0 30px;
+}
+
+.wrapper {
+    padding: 5rem 0 6rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .wrapper {
+        padding: 5rem 0;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .wrapper {
+        padding: 6.25rem 0 12.5rem;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .wrapper {
+        align-items: flex-end;
+    }
+}
+
+.left {
+
+}
+
+@media only screen and (min-width: 768px) {
+    .left {
+        max-width: calc(100% / 12 * 6 - 15px);
+    }
+}
+
+.title {
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: .1em;
+}
+
+@media only screen and (min-width: 480px) {
+    .title {
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .title {
+        margin-bottom: 40px;
+    }
+}
+
+.paragraph {
+    margin-bottom: 30px;
+
+    font-size: .875rem;
+    line-height: 1.167em;
+    letter-spacing: .1em;
+    color: #ffffff;
+    font-weight: 300;
+}
+
+@media only screen and (min-width: 480px) {
+    .paragraph {
+        font-size: 1.125rem;
+        margin-bottom: 40px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .paragraph {
+        margin-bottom: 0;
+        font-size: 1.5rem;
+    }
+}
+
+.form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+    .form {
+        padding-top: 162px;
+        max-width: calc(100% / 12 * 6 - 15px);
+        width: 100%;
+        align-items: flex-end;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .form {
+        padding-top: 0;
+    }
+}
+
+.input {
+    margin-bottom: 20px;
+}
+
+.input:last-of-type {
+    margin-bottom: 30px;
+}
+
+@media only screen and (min-width: 768px) {
+    .input:last-of-type {
+        margin-bottom: 50px;
+    }
+}
+
+.button {
+    margin: 0 auto;
+}
+
+@media only screen and (min-width: 480px) {
+    .button {
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .button {
+        margin: auto 0 0 0;
+    }
+}
+
+.input_wrapper {
+}
+
+.background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.background > * {
+    max-width: unset;
+}

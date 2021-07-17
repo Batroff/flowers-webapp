@@ -8,7 +8,7 @@
     background-color: #ffffff;
 }
 
-#nav {
+nav {
     position: absolute;
     top: 50px;
     left: 0;
@@ -25,7 +25,7 @@
     transition: height .5s ease, background-color .5s ease-out;
 }
 
-#nav li {
+nav li {
     position: relative;
 
     font-size: 32px;
@@ -36,16 +36,16 @@
     padding: .5rem 1rem;
 }
 
-#nav li:last-child {
+nav li:last-child {
     margin-bottom: 0;
 }
 
-#nav li:hover {
+nav li:hover {
     cursor: pointer;
     color: #fff;
 }
 
-#nav li:before {
+nav li:before {
     content: '';
     position: absolute;
     top: 0;
@@ -59,7 +59,7 @@
     transition: all .5s ease;
 }
 
-#nav li:hover:before {
+nav li:hover:before {
     background-color: #232323;
     width: 100%;
 }
@@ -69,7 +69,7 @@
         height: auto;
     }
 
-    #nav {
+    nav {
         position: unset;
         top: 0;
         left: 0;
@@ -80,7 +80,7 @@
         overflow: auto;
     }
 
-    #nav ul {
+    nav ul {
         display: flex;
         flex-flow: row nowrap;
         justify-content: center;
@@ -88,7 +88,7 @@
     }
 
 
-    #nav li {
+    nav li {
         position: relative;
 
         font-size: 24px;
@@ -100,15 +100,15 @@
         padding: .5rem 1rem;
     }
 
-    #nav li:last-child {
+    nav li:last-child {
         margin-right: 0;
     }
 
-    #nav li:before {
+    nav li:before {
         z-index: 0;
     }
 
-    #nav li a {
+    nav li a {
         position: relative;
         z-index: 1;
     }

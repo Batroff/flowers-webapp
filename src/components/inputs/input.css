@@ -1,0 +1,69 @@
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+
+@media only screen and (min-width: 1200px) {
+    .container {
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}
+
+.label {
+    margin-bottom: 5px;
+
+    font-size: 1.125rem;
+    line-height: 1.167em;
+    color: #ffffff;
+    font-weight: 400;
+}
+@media only screen and (min-width: 480px) {
+    .label {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .label {
+        margin-bottom: 0;
+        margin-right: 20px;
+    }
+}
+
+.input {
+    padding: .625rem .75rem;
+    background: #ffffff;
+    border: 2px solid #1CA7EC;
+    min-width: 260px;
+    height: 40px;
+}
+
+@media only screen and (min-width: 480px) {
+    .input {
+        min-width: 300px;
+        height: 50px;
+    }
+}
+
+.input:focus {
+    outline: none;
+    border: 2px solid #1C63EC;
+}
+
+.input::placeholder {
+    font-size: .875rem;
+    line-height: 1.167em;
+    color: #666666;
+    font-weight: 300;
+}
+
+@media only screen and (min-width: 480px) {
+    .input::placeholder {
+        font-size: 1.125rem;
+    }
+}

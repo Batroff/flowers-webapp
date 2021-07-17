@@ -15,37 +15,37 @@ export default class About extends React.Component{
     this.setState({
       items: [
         {
-          title: 'Some title',
+          title: 'Some title1',
           paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
           imageSrc: 'about-item-image.jpg',
           imageAlt: 'flower1'
         },
         {
-          title: 'Another title',
+          title: 'Another title2',
           paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
           imageSrc: 'about-item-image.jpg',
           imageAlt: 'flower2'
         },
         {
-          title: 'Some title',
+          title: 'Some title3',
           paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
           imageSrc: 'about-item-image.jpg',
           imageAlt: 'flower3'
         },
         {
-          title: 'Another title',
+          title: 'Another title4',
           paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
           imageSrc: 'about-item-image.jpg',
           imageAlt: 'flower4'
         },
         {
-          title: 'Another title',
+          title: 'Another title5',
           paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
           imageSrc: 'about-item-image.jpg',
           imageAlt: 'flower5'
         },
         {
-          title: 'Another title',
+          title: 'Another title6',
           paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
           imageSrc: 'about-item-image.jpg',
           imageAlt: 'flower6'
@@ -68,7 +68,11 @@ export default class About extends React.Component{
 
           <div className={styles.items}>
             {items.map(({title, paragraph, imageSrc, imageAlt}) => (
-              AboutItem({title, paragraph, imageSrc, imageAlt})
+              <AboutItem title={title}
+                         paragraph={paragraph}
+                         imageSrc={imageSrc}
+                         imageAlt={imageAlt}
+                         key={title}/>
             ))}
           </div>
           <BlueButton text={"Посмотреть ещё"}
