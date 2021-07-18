@@ -37,7 +37,7 @@ export default function ContactForm() {
         </form>
       </div>
 
-      <picture className={styles.background}>
+      <picture className={"background"}>
         <source srcSet={image1200} media={"(min-width: 1200px)"}/>
         <source srcSet={image768} media={"(min-width: 768px)"}/>
         <source srcSet={image480} media={"(min-width: 480px)"}/>

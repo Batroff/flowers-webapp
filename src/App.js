@@ -6,6 +6,7 @@ import Header from "./components/header/header";
 import About from "./components/about/about";
 import ContactForm from "./components/contact-form/contact-form";
 import Contacts from "./components/contacts/contacts";
+import Footer from "./components/footer/footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <About/>
         <ContactForm/>
         <Contacts/>
+        <Footer/>
       </main>
 
       <footer className={styles.footer}>
