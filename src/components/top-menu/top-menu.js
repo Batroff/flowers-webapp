@@ -4,7 +4,11 @@ import styles from './top-menu.module.css'
 import React, {useState} from "react";
 
 
-const menuItems = ['О нас', 'Собрать свой букет', 'Контакты', '66-66-66']
+const menuItems = [
+  {text: 'О нас', href: '#about'},
+  {text: 'Собрать свой букет', href: '#contacts-form'},
+  {text: 'Контакты', href: '#contacts'},
+]
 const logoTitle = 'Lorem ipsum'
 
 export default function TopMenu() {

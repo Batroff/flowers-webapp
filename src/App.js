@@ -1,29 +1,19 @@
-import styles from './App.module.css';
-
 import React from "react";
-import TopMenu from "./components/top-menu/top-menu";
-import Header from "./components/header/header";
-import About from "./components/about/about";
-import ContactForm from "./components/contact-form/contact-form";
-import Contacts from "./components/contacts/contacts";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import Footer from "./components/footer/footer";
+import Home from "./components/home/home";
+import TopMenu from "./components/top-menu/top-menu";
 
 function App() {
   return (
-    <div className="App">
-      <main className={styles.main}>
-        <TopMenu/>
-        <Header/>
-        <About/>
-        <ContactForm/>
-        <Contacts/>
-        <Footer/>
-      </main>
-
-      <footer className={styles.footer}>
-
-      </footer>
-    </div>
+    <Router>
+      <div className="App">
+        <Route path={'*'} component={TopMenu}/>
+        <Route path={'/'} component={Home}/>
+        <Route path={'*'} component={Footer}/>
+      </div>
+    </Router>
   );
 }
 

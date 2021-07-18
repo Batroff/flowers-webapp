@@ -10,7 +10,7 @@ import BlueButton from "../buttons/blue-button";
 
 export default function ContactForm() {
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id={"contacts-form"}>
       <div className={`wrapper ${styles.wrapper}`}>
         <div className={styles.left}>
           <h1 className={styles.title}>Собери<br/><span className={"text-blue"}>свой</span> букет</h1>

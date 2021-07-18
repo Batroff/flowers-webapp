@@ -7,7 +7,7 @@ import locationImage from './location.svg'
 
 export default function Contacts() {
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id={"contacts"}>
       <div className={`wrapper ${styles.wrapper}`}>
         <h1 className={styles.title}>Мы <span className={"text-blue"}>всегда</span><br/>готовы помочь</h1>
         <hr className={`hr-splitter ${styles.splitter}`}/>

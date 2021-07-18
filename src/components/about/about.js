@@ -58,7 +58,7 @@ export default class About extends React.Component{
     const { items } = this.state
 
     return (
-      <section className={styles.container}>
+      <section className={styles.container} id={"about"}>
         <div className={[styles.wrapper, 'wrapper'].join(' ')}>
           <h1 className={styles.title}><span className={"text-underline"}>Чем</span> мы<br/>занимаемся?</h1>
           <p className={styles.paragraph}>Nullam rhoncus eu ligula non feugiat. Praesent et risus ut justo molestie
