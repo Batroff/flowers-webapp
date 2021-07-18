@@ -5,6 +5,7 @@ import TopMenu from "./components/top-menu/top-menu";
 import Header from "./components/header/header";
 import About from "./components/about/about";
 import ContactForm from "./components/contact-form/contact-form";
+import Contacts from "./components/contacts/contacts";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Header/>
         <About/>
         <ContactForm/>
+        <Contacts/>
       </main>
 
       <footer className={styles.footer}>

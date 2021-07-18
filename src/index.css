@@ -33,6 +33,11 @@ img {
   display: block;
 }
 
+hr {
+  margin-block: 0;
+  margin-inline: 0;
+}
+
 h1, h2, h3, h4, h5, h6, p, b, i, span, li, ul, a {
   padding: 0;
   margin: 0;
@@ -78,6 +83,13 @@ h1 {
   height: 5px;
   background: #000;
   display: block;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 480px) {
+  .hr-splitter {
+    width: 100px;
+  }
 }
 
 @font-face {
