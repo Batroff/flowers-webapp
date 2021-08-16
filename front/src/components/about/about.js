@@ -12,46 +12,54 @@ export default class About extends React.Component{
   }
 
   componentDidMount() {
-    this.setState({
-      items: [
-        {
-          title: 'Some title1',
-          paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
-          imageSrc: 'about-item-image.jpg',
-          imageAlt: 'flower1'
-        },
-        {
-          title: 'Another title2',
-          paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
-          imageSrc: 'about-item-image.jpg',
-          imageAlt: 'flower2'
-        },
-        {
-          title: 'Some title3',
-          paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
-          imageSrc: 'about-item-image.jpg',
-          imageAlt: 'flower3'
-        },
-        {
-          title: 'Another title4',
-          paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
-          imageSrc: 'about-item-image.jpg',
-          imageAlt: 'flower4'
-        },
-        {
-          title: 'Another title5',
-          paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
-          imageSrc: 'about-item-image.jpg',
-          imageAlt: 'flower5'
-        },
-        {
-          title: 'Another title6',
-          paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
-          imageSrc: 'about-item-image.jpg',
-          imageAlt: 'flower6'
-        },
-      ]
-    })
+    fetch('http://localhost:5000/api/flowers')
+        .then(res => res.json())
+        .then(items => {
+          this.setState({
+            items: items
+              })
+            },
+            error => console.log(error))
+    // this.setState({
+    //   items: [
+    //     {
+    //       title: 'Some title1',
+    //       paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
+    //       imageSrc: 'about-item-image.jpg',
+    //       imageAlt: 'flower1'
+    //     },
+    //     {
+    //       title: 'Another title2',
+    //       paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
+    {/*      imageSrc: 'about-item-image.jpg',*/}
+    //       imageAlt: 'flower2'
+    //     },
+    //     {
+    //       title: 'Some title3',
+    //       paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
+    //       imageSrc: 'about-item-image.jpg',
+    //       imageAlt: 'flower3'
+    //     },
+    //     {
+    //       title: 'Another title4',
+    //       paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
+    //       imageSrc: 'about-item-image.jpg',
+    //       imageAlt: 'flower4'
+    //     },
+    //     {
+    //       title: 'Another title5',
+    //       paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
+    //       imageSrc: 'about-item-image.jpg',
+    //       imageAlt: 'flower5'
+    //     },
+    //     {
+    //       title: 'Another title6',
+    //       paragraph: 'Cras sodales ac purus id congue. Nullam ac scelerisque diam. Maecenas ut blandit velit. Etiam mi neque, consequat in ex sit amet, semper varius quam.',
+    //       imageSrc: 'about-item-image.jpg',
+    //       imageAlt: 'flower6'
+    //     },
+    //   ]
+    // })
   }
 
   render() {
@@ -67,12 +75,12 @@ export default class About extends React.Component{
           <hr className={["hr-splitter", styles.splitter].join(' ')}/>
 
           <div className={styles.items}>
-            {items.map(({title, paragraph, imageSrc, imageAlt}) => (
+            {items.map(({id, title, paragraph, image}) => (
               <AboutItem title={title}
                          paragraph={paragraph}
-                         imageSrc={imageSrc}
-                         imageAlt={imageAlt}
-                         key={title}/>
+                         imageSrc={image}
+                         imageAlt={title}
+                         key={id}/>
             ))}
           </div>
           <BlueButton text={"Посмотреть ещё"}

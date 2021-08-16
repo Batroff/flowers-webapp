@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+.wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+td, tr, th, table {
+    border-spacing: 0;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+a {
+    color: inherit;
+}
+
+.navigation {
+    background: #232323;
+    color: #fff;
+    padding: 0 30px;
+}
+
+.navigation > .wrapper {
+    height: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel {
+    position: relative;
+    padding: 80px 30px;
+    height: calc(100vh - 50px);
+}
+.panel > .wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+
+
+.panel > .params {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-item {
+    display: none;
+    border: 1px solid #000;
+}
+
+#form-add {
+    display: block;
+}
+
+#message {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: crimson;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
