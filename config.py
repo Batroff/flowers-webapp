@@ -1,11 +1,7 @@
-import os
-
 from decouple import config
 
 
 class Config(object):
-    ROOT_FOLDER = os.path.abspath(os.path.join(os.path.pardir, __file__))
-
     SECRET_KEY = config('SECRET_KEY')
 
     # database
@@ -20,7 +16,7 @@ class Config(object):
     SQLALCHEMY_ECHO = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    UPLOAD_FOLDER = f'{ROOT_FOLDER}/front/public/images'
+    UPLOAD_FOLDER = 'front/public/images'
 
 
 class ProductionConfig(Config):

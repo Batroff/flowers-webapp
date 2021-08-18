@@ -41,28 +41,33 @@ def logout():
 @login_required
 def admin():
     existing_flowers = select_flowers()
-    print(f'form {request.form}; files {request.files}')
 
     if request.method == 'POST' and 'action' in request.form:
         action = request.form['action']
 
         if action == 'delete' and allowed_to_delete(item_id=request.form['id']):
             delete_flower(item_id=request.form['id'])
+
+            filepath = get_download_path(filename=request.form['image'])
+            if os.path.exists(filepath):
+                os.remove(filepath)
+
             flash('Товар успешно удалён!')
             return redirect(url_for('base_blueprint.admin'))
 
+        image_prefix = 'about-item-image-'
         data = {
             'title': request.form['title'],
             'description': request.form['description'],
-            'image': request.files['image'].filename,
+            'image': f'{image_prefix}{request.files["image"].filename}',
             'existing_flowers': existing_flowers
         }
 
         if action == 'add' and allowed_to_add(data=data):
-            print(f'dir {current_app.config["UPLOAD_FOLDER"]}')
-            # file = request.files['image']
-            # filename = secure_filename(file.filename)
-            # file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+            file = request.files['image']
+            filename = f'{image_prefix}{secure_filename(file.filename)}'
+            filepath = get_download_path(filename=filename)
+            file.save(filepath)
 
             add_flower(data)
 
@@ -75,6 +80,13 @@ def admin():
             return redirect(url_for('base_blueprint.admin'))
 
     return render_template('admin.html', items=existing_flowers)
+
+
+def get_download_path(filename):
+    # path for ./front/public/images/
+    root_path = os.path.dirname(current_app.instance_path)
+    upload_path = os.path.normpath(os.path.join(root_path, current_app.config['UPLOAD_FOLDER'], filename))
+    return upload_path
 
 
 def allowed_to_add(data):
@@ -111,6 +123,4 @@ def allowed_to_delete(item_id):
 
 def allowed_file(filename):
     return '.' in filename and \
-        filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS

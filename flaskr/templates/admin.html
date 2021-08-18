@@ -25,11 +25,11 @@
         <tbody>
         {% for item in items %}
           <tr data-id="{{ item.id }}">
-            <td>{{ item.id }}</td>
-            <td>{{ item.title }}</td>
-            <td>{{ item.description }}</td>
-            <td>{{ item.image }}</td>
-            <td data-delete="{{ item.id }}">DEL</td>
+            <td data-id>{{ item.id }}</td>
+            <td data-title>{{ item.title }}</td>
+            <td data-description>{{ item.description }}</td>
+            <td data-image>{{ item.image }}</td>
+            <td data-delete>Удалить</td>
             <td>Изменить</td>
           </tr>
         {% endfor %}
@@ -53,7 +53,7 @@
 
           <div class="params-item">
             <label for="form-edit-description">Описание:</label>
-            <input type="text" name="description" id="form-edit-description">
+            <textarea type="text" name="description" id="form-edit-description"></textarea>
           </div>
 
           <div class="params-item">
@@ -74,7 +74,7 @@
 
           <div class="params-item">
             <label for="form-add-description">Описание:</label>
-            <input type="text" name="description" id="form-add-description">
+            <textarea type="text" name="description" id="form-add-description"></textarea>
           </div>
 
           <div class="params-item">

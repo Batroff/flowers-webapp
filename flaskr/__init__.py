@@ -14,7 +14,6 @@ api_blueprint = Blueprint('api_blueprint',
                           __name__,
                           url_prefix='/api')
 
-UPLOAD_FOLDER = '/front/public/images'
 
 db = SQLAlchemy()
 login_manager = LoginManager()
@@ -44,7 +43,6 @@ def register_blueprints(app):
 def create_app(config):
     app = Flask(__name__)
     app.config.from_object(config)
-    app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
     register_blueprints(app)
     register_extensions(app)
