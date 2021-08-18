@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Администрирование - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/assets/styles.css">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <main role="main">
+        {% block content %}{% endblock content %}
+    </main>
+</body>
+</html>

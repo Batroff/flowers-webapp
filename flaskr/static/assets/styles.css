@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+td, tr, th, table {
+    border-spacing: 0;
+}
+
+td, th {
+    padding: 10px;
+}
+
+td, th {
+    border-left: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+td:last-child, th:last-child {
+    border-right: 1px solid #000;
+}
+
+
+th {
+    background: #232323;
+    color: #fff;
+}
+
+td[data-delete]:hover {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+}
+
+.navigation {
+    background: #232323;
+    color: #fff;
+    padding: 0 30px;
+}
+
+.navigation > .wrapper {
+    height: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel {
+    position: relative;
+    padding: 80px 30px;
+    height: calc(100vh - 50px);
+}
+.panel > .wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.panel > .params {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel form {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #ffde59, #e45d0b);
+    border-radius: 20px;
+    box-shadow: 3px 10px 8px #d3d3d3;
+    color: #ffffff;
+}
+
+.params-item label {
+    margin-right: 10px;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+}
+
+.params-item input, textarea {
+    max-width: 250px;
+    width: 100%;
+    height: 30px;
+}
+
+.params-item input[type=file] {
+    height: auto;
+}
+
+.params-item {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 1rem;
+}
+
+.params-item:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.panel button {
+    appearance: none;
+    border: none;
+    background: #e45d0b;
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.form-item {
+    display: none;
+}
+
+#form-add {
+    display: block;
+}
+
+#message {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: crimson;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+a:hover, input[type="file"], button:hover {
+   cursor: pointer;
+}

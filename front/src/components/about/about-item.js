@@ -2,7 +2,7 @@ import styles from './about-item.module.css'
 
 
 export default function AboutItem(props) {
-  const {title, paragraph, imageSrc, imageAlt} = props
+  const {title, description, imageSrc, imageAlt} = props
 
   return (
     <div className={styles.item}>
@@ -11,7 +11,7 @@ export default function AboutItem(props) {
              alt={ imageAlt }/>
       </div>
       <p className={styles.title}>{ title }</p>
-      <p className={styles.paragraph}> { paragraph }</p>
+      <p className={styles.description}> { description }</p>
     </div>
   )
 }

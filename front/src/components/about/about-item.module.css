@@ -48,7 +48,7 @@
     }
 }
 
-.paragraph {
+.description {
     font-size: .875rem;
     line-height: 1.143em;
     font-weight: 300;
@@ -57,7 +57,7 @@
 }
 
 @media only screen and (min-width: 480px) {
-    .paragraph {
+    .description {
         font-size: 1.125rem;
     }
 }
