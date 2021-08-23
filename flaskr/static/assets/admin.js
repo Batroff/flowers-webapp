@@ -4,9 +4,8 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function tableHandler(e) {
-    console.log(e)
-    if (e.target.hasAttribute('data-delete')) {
-        const item = e.target.parentElement
+    if (e.target.closest('td').hasAttribute('data-delete')) {
+        const item = e.target.closest('tr')
         const item_id = item.getAttribute('data-id')
         const item_title = item.querySelector('[data-title]').textContent
         const item_description = item.querySelector('[data-description]').textContent

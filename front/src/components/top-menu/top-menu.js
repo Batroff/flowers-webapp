@@ -14,10 +14,15 @@ const logoTitle = 'Lorem ipsum'
 export default function TopMenu() {
   const [isOpen, handleOpen] = useState(false)
 
+  const handleChange = () => {
+    handleOpen(!isOpen)
+    document.body.classList.toggle('menu-open')
+}
+
   return (
     <section className={styles.container}>
       <h3 className={styles.title}>{logoTitle}</h3>
-      <BurgerBtn isOpen={isOpen} handler={handleOpen}/>
+      <BurgerBtn isOpen={isOpen} handler={handleChange}/>
 
       <MenuNav menuItems={menuItems} isOpen={isOpen}/>
     </section>

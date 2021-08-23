@@ -5,7 +5,7 @@ class Config(object):
     SECRET_KEY = config('SECRET_KEY')
 
     # database
-    SQLALCHEMY_DATABASE_URI = '{}://{}:{}@{}:{}/{}'.format(
+    SQLALCHEMY_DATABASE_URI = '{}://{}:{}@{}:{}/{}?charset=utf8mb4'.format(
         config('DB_ENGINE', default='mysql+pymysql'),
         config('DB_USER'),
         config('DB_PASSWORD'),

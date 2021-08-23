@@ -19,7 +19,7 @@
           <th>Название</th>
           <th>Описание</th>
           <th>Путь к файлу</th>
-          <th colspan="2">Действия</th>
+          <th>Действия</th>
         </tr>
         </thead>
         <tbody>
@@ -29,60 +29,39 @@
             <td data-title>{{ item.title }}</td>
             <td data-description>{{ item.description }}</td>
             <td data-image>{{ item.image }}</td>
-            <td data-delete>Удалить</td>
-            <td>Изменить</td>
+            <td data-delete><div class="delete-img"><img src="static/assets/delete-icon.svg" alt="Удалить"/></div></td>
           </tr>
         {% endfor %}
         </tbody>
       </table>
 
-      <form method="POST" id="form-edit" class="form-item" enctype="multipart/form-data">
-        <h3>Товар №{% if items %}{{ items[0].id }}{% endif %}</h3>
-        <label for="form-item-id">ID</label>
-        <select name="id" id="form-item-id">
-          {% for item in items %}
-            <option value="{{ item.id }}">{{ item.id }}</option>
-          {% endfor %}
-        </select>
+<!--      <h3>Товар №{% if items %}{{ items[0].id }}{% endif %}</h3>-->
+<!--      <label for="form-item-id">ID</label>-->
+<!--      <select name="id" id="form-item-id">-->
+<!--        {% for item in items %}-->
+<!--          <option value="{{ item.id }}">{{ item.id }}</option>-->
+<!--        {% endfor %}-->
+<!--      </select>-->
 
+      <form method="POST" id="form" enctype="multipart/form-data">
         <div class="params">
           <div class="params-item">
-            <label for="form-edit-title">Название:</label>
-            <input type="text" name="title" id="form-edit-title">
+            <label for="form-title">Название:</label>
+            <input type="text" name="title" id="form-title">
           </div>
 
           <div class="params-item">
-            <label for="form-edit-description">Описание:</label>
-            <textarea type="text" name="description" id="form-edit-description"></textarea>
+            <label for="form-description">Описание:</label>
+            <textarea rows="3" type="text" name="description" id="form-description"></textarea>
           </div>
 
           <div class="params-item">
-            <label for="form-edit-image">Картинка:</label>
-            <input type="file" name="image" id="form-edit-image">
+            <label for="form-image">Картинка:</label>
+            <input type="file" name="image" id="form-image">
           </div>
         </div>
 
-        <button type="submit" name="action" value="apply">Применить</button>
-      </form>
-
-      <form method="POST" id="form-add" class="form-item" enctype="multipart/form-data">
-        <div class="params">
-          <div class="params-item">
-            <label for="form-add-title">Название:</label>
-            <input type="text" name="title" id="form-add-title">
-          </div>
-
-          <div class="params-item">
-            <label for="form-add-description">Описание:</label>
-            <textarea type="text" name="description" id="form-add-description"></textarea>
-          </div>
-
-          <div class="params-item">
-            <label for="form-add-image">Картинка:</label>
-            <input type="file" name="image" id="form-add-image">
-          </div>
-        </div>
-
+        <input type="hidden" name="id">
         <button type="submit" name="action" value="add">Добавить</button>
       </form>
     </div>

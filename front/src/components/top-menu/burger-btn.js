@@ -5,7 +5,7 @@ export default function BurgerBtn(props) {
   return (
     <div className={props.isOpen ? styles.open : styles.closed}
          id={styles.container}
-         onClick={() => props.handler(!props.isOpen)}>
+         onClick={props.handler}>
       <div className={styles.line}></div>
       <div className={styles.line}></div>
       <div className={styles.line}></div>

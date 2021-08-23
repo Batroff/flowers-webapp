@@ -60,16 +60,18 @@
 @media only screen and (min-width: 480px) {
     .items {
         margin-bottom: 50px;
-    }
-}
 
-@media only screen and (min-width: 768px) {
-    .items {
         grid-template-columns: 1fr 1fr;
         grid-column-gap: 30px;
 
         grid-template-rows: auto;
         grid-row-gap: 60px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .items {
+
     }
 }
 

@@ -23,7 +23,7 @@ export default function About(props) {
     fetch('http://localhost:5000/api/flowers')
         .then(res => res.json())
         .then(items => setItems(items), error => console.log(error))
-  })
+  }, [itemsCount])
 
   const handleShowMoreClick = () => {
     const increment = 3
