@@ -7,9 +7,19 @@
         <div class="message">{{ msg }}</div>
     {% endif %}
 
-    <form method="post" action="">
-        {{ form.username(placeholder='Логин') }}
-        {{ form.password(placeholder='Пароль', type='password') }}
-        <button type="submit" name="login" class="btn btn-primary">Войти</button>
-    </form>
+    <div id="form-wrapper">
+        <form method="post" action="" id="login-form">
+            <div class="params-item">
+                <label for="username">Логин</label>
+                {{ form.username(placeholder='Логин', id='username') }}
+            </div>
+
+            <div class="params-item">
+                <label for="password">Пароль</label>
+                {{ form.password(placeholder='Пароль', id='password', type='password') }}
+            </div>
+
+            <button type="submit" name="login" class="blue-btn">Войти</button>
+        </form>
+    </div>
 {% endblock content %}

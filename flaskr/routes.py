@@ -5,9 +5,12 @@ from flask import request, render_template, redirect, url_for, flash, current_ap
 from flask_login import login_user, login_required, logout_user
 from werkzeug.utils import secure_filename
 
-from flaskr.database_queries import select_user, select_flowers, update_flower, select_flower, add_flower, delete_flower
+from flaskr.database_queries import select_user, select_flowers, update_flower, select_flower, add_flower, \
+    delete_flower_by_id
 from flaskr.forms import LoginForm
 from flaskr import base_blueprint as blueprint
+from flaskr.models import ItemFlower
+from flaskr.utils import optimize_image
 
 ALLOWED_EXTENSIONS = {'jpg', 'png', 'jpeg'}
 
@@ -46,7 +49,7 @@ def admin():
         action = request.form['action']
 
         if action == 'delete' and allowed_to_delete(item_id=request.form['id']):
-            delete_flower(item_id=request.form['id'])
+            delete_flower_by_id(item_id=request.form['id'])
 
             filepath = get_download_path(filename=request.form['image'])
             if os.path.exists(filepath):
@@ -55,28 +58,34 @@ def admin():
             flash('Товар успешно удалён!')
             return redirect(url_for('base_blueprint.admin'))
 
-        image_prefix = 'about-item-image-'
-        data = {
-            'title': request.form['title'],
-            'description': request.form['description'],
-            'image': f'{image_prefix}{request.files["image"].filename}',
-            'existing_flowers': existing_flowers
-        }
-
-        if action == 'add' and allowed_to_add(data=data):
+        elif action == 'add':
+            image_prefix = 'about_optimized-'
             file = request.files['image']
-            filename = f'{image_prefix}{secure_filename(file.filename)}'
-            filepath = get_download_path(filename=filename)
-            file.save(filepath)
+            filename = secure_filename(file.filename)
 
-            add_flower(data)
+            data = {
+                'title': request.form['title'],
+                'description': request.form['description'],
+                'image': f'{image_prefix}{filename}',
+                'existing_flowers': existing_flowers
+            }
+            if not allowed_to_add(data=data):
+                flash('Некорректный формат данных')
+                return redirect(url_for('base_blueprint.admin'))
+
+            source_filepath = get_download_path(filename=filename)
+            file.save(source_filepath)
+            optimized_filepath = get_download_path(filename=data['image'])
+            optimize_image(src_filepath=source_filepath, res_filepath=optimized_filepath)
+            if os.path.exists(source_filepath):
+                os.remove(source_filepath)
+
+            flower = ItemFlower(title=data['title'],
+                                description=data['description'],
+                                image=data['image'])
+            add_flower(flower)
 
             flash('Товар успешно добавлен!')
-            return redirect(url_for('base_blueprint.admin'))
-
-        elif action == 'apply' and allowed_to_apply(data=data):
-            # update_flower(data)
-            # flash('Товар успешно обновлён!')
             return redirect(url_for('base_blueprint.admin'))
 
     return render_template('admin.html', items=existing_flowers)
@@ -106,10 +115,6 @@ def allowed_to_add(data):
     if not allowed_file(filename=data['image']):
         return False
 
-    return True
-
-
-def allowed_to_apply(data):
     return True
 
 

@@ -147,7 +147,7 @@ a {
     height: 1.5rem;
 }
 
-.panel button {
+.blue-btn {
     appearance: none;
     border: none;
     background: #1CA7EC;
@@ -172,4 +172,29 @@ a {
 
 a:hover, input[type="file"], button:hover {
    cursor: pointer;
+}
+
+#form-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+#login-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+
+    text-align: center;
+    background: #232323;
+    color: #fff;
+    padding: 5rem 3rem;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px #d3d3d3;
+}
+
+#login-form > div {
+    margin-bottom: 35px;
 }

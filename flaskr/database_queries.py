@@ -14,32 +14,11 @@ def select_flower(item_id):
     return ItemFlower.query.filter_by(id=item_id).one_or_none()
 
 
-def update_flower(item_dict):
-    ItemFlower.query.filter_by(id=item_dict['id']) \
-        .update({
-            ItemFlower.title: item_dict['title'],
-            ItemFlower.description: item_dict['description'],
-            ItemFlower.image: item_dict['image'],
-        })
-    db.session.commit()
-
-
-def delete_flower(item_id):
+def delete_flower_by_id(item_id):
     ItemFlower.query.filter_by(id=item_id).delete()
     db.session.commit()
 
 
-def add_flower(item_dict):
-    flower = ItemFlower(title=item_dict['title'],
-                        description=item_dict['description'],
-                        image=item_dict['image'])
+def add_flower(flower: ItemFlower):
     db.session.add(flower)
     db.session.commit()
-
-# def create_admin():
-#     with open('.credentials', 'r') as f:
-#         username, password = f.readline().split(':')
-#
-#     admin = User(username=username, password=hash_password(password))
-#     db.session.add(admin)
-#     db.session.commit()

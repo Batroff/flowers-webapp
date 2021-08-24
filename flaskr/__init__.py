@@ -5,6 +5,11 @@ from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask import Blueprint
 
+import tinify
+
+tinify.key = 'yGgYMWp4ynhq3jn9JWcmRmHSfjWTr24y'
+
+
 base_blueprint = Blueprint('base_blueprint',
                            __name__,
                            template_folder='templates',

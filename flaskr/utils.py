@@ -1,6 +1,7 @@
 import binascii
 import hashlib
 import os
+import tinify
 
 
 def hash_password(password):
@@ -21,3 +22,13 @@ def check_password(stored_password, provided_password):
                                         100000)
     password_hash = binascii.hexlify(password_hash).decode('ascii')
     return password_hash == stored_password
+
+
+def optimize_image(src_filepath, res_filepath):
+    source = tinify.from_file(src_filepath)
+    resized = source.resize(
+        method="scale",
+        width=555
+    )
+
+    resized.to_file(res_filepath)

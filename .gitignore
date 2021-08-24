@@ -19,3 +19,6 @@ front/.env.test.local
 front/.env.production.local
 
 front/npm-debug.log*
+
+.idea
+venv
