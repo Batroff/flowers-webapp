@@ -29,13 +29,26 @@
 
 .image {
     margin-right: 20px;
+    width: 32px;
+    height: 32px;
 }
 
 .image:hover {
     cursor: pointer;
 }
 
-.image > img {}
+.image > svg {
+    width: 100%;
+}
+
+.image > svg > path {
+    fill: #fff;
+    transition: fill .1s linear;
+}
+
+.image:hover > svg > path {
+    fill: #1ca7ec;
+}
 
 @media only screen and (min-width: 480px) {
     .image {
@@ -44,11 +57,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-
-    .image img {
-        width: 100%;
-        height: auto;
     }
 }
 

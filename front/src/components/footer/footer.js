@@ -1,6 +1,6 @@
 import styles from './footer.module.css'
-import tg from './tg.svg'
-import vk from './vk.svg'
+import {ReactComponent as TgLogo} from './tg.svg'
+import {ReactComponent as VkLogo} from './vk.svg'
 import image1200 from "./bg-1200.png";
 import image768 from "./bg-768.png";
 import image480 from "./bg-480.png";
@@ -13,8 +13,8 @@ export default function Footer() {
       <div className={`wrapper ${styles.wrapper}`}>
         <h1 className={styles.title}>Мы в<br/><span className={"text-blue"}>социальных</span> сетях</h1>
         <div className={styles.items}>
-          <a href="#" className={styles.image}><img src={tg} alt={"Телеграм"}/></a>
-          <a href="#" className={styles.image}><img src={vk} alt={"Вконтакте"}/></a>
+          <a href="#" className={styles.image}><TgLogo width={'100%'} height={'100%'}/></a>
+          <a href="#" className={styles.image}><VkLogo width={'100%'} height={'100%'}/></a>
         </div>
       </div>
 

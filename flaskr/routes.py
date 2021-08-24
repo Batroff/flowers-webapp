@@ -5,8 +5,7 @@ from flask import request, render_template, redirect, url_for, flash, current_ap
 from flask_login import login_user, login_required, logout_user
 from werkzeug.utils import secure_filename
 
-from flaskr.database_queries import select_user, select_flowers, update_flower, select_flower, add_flower, \
-    delete_flower_by_id
+from flaskr.database_queries import select_user, select_flowers, select_flower, add_flower, delete_flower_by_id
 from flaskr.forms import LoginForm
 from flaskr import base_blueprint as blueprint
 from flaskr.models import ItemFlower
