@@ -16,6 +16,8 @@ ALLOWED_EXTENSIONS = {'jpg', 'png', 'jpeg'}
 
 @blueprint.route('/login', methods=['GET', 'POST'])
 def login():
+    current_app.logger.info(f'Login request with data: {request.form}')
+
     login_form = LoginForm(request.form)
 
     if 'login' in request.form:
@@ -26,6 +28,7 @@ def login():
 
         if user and user.password == password:
             login_user(user)
+            current_app.logger.info(f'Successful login {user}')
             return redirect(url_for('base_blueprint.admin'))
         else:
             return render_template('login.html', form=login_form, msg='Логин или пароль введены неверно')
@@ -36,6 +39,7 @@ def login():
 @blueprint.route('/logout')
 def logout():
     logout_user()
+    current_app.logger.info(f'Successful logout')
     return redirect(url_for('base_blueprint.login'))
 
 
@@ -91,9 +95,8 @@ def admin():
 
 
 def get_download_path(filename):
-    # path for ./front/public/images/
     root_path = os.path.dirname(current_app.instance_path)
-    upload_path = os.path.normpath(os.path.join(root_path, current_app.config['UPLOAD_FOLDER'], filename))
+    upload_path = os.path.join(root_path, current_app.config['UPLOAD_FOLDER'], filename)
     return upload_path
 
 
