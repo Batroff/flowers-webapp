@@ -11,7 +11,7 @@ export default function MenuNav(props) {
     <nav className={width >= 1200 || props.isOpen ? styles.open : styles.closed}>
       <ul>
         {menuItems.map(({text, href}) => {
-          return <li key={text}><Link smooth to={href}>{text}</Link></li>
+          return <li key={text} onClick={props.handler}><Link smooth to={href}>{text}</Link></li>
         })}
         <li><a href="tel:66-66-66">66-66-66</a></li>
       </ul>

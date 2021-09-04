@@ -34,9 +34,7 @@ export default function About(props) {
     <section className={styles.container} id={"about"}>
       <div className={[styles.wrapper, 'wrapper'].join(' ')}>
         <h1 className={styles.title}><span className={"text-underline"}>Чем</span> мы<br/>занимаемся?</h1>
-        <p className={styles.paragraph}>Nullam rhoncus eu ligula non feugiat. Praesent et risus ut justo molestie
-          posuere. Nulla urna turpis, condimentum non consectetur nec, fringilla et turpis. Pellentesque finibus, elit
-          at facilisis suscipit</p>
+        <p className={styles.paragraph}>Наша цветочная ферма - это семейное дело, которое мы начали, чтобы сделать красоту доступной. Мы с особой бережностью и вниманием подходим к выращиванию наших цветов и растений, поэтому можем гарантировать качество и самые лучшие условия работы. Мы сами выращиваем все что предлагаем Вам.</p>
         <hr className={["hr-splitter", styles.splitter].join(' ')}/>
 
         <div className={styles.items}>

@@ -24,7 +24,7 @@ export default function TopMenu() {
       <h3 className={styles.title}>{logoTitle}</h3>
       <BurgerBtn isOpen={isOpen} handler={handleChange}/>
 
-      <MenuNav menuItems={menuItems} isOpen={isOpen}/>
+      <MenuNav menuItems={menuItems} handler={handleChange} isOpen={isOpen}/>
     </section>
   )
 }
