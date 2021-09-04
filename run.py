@@ -4,7 +4,7 @@ from decouple import config
 from waitress import serve
 
 
-DEBUG = config('DEBUG', default=True)
+DEBUG = config('DEBUG', default=False, cast=bool)
 app_config = config_dict['debug'] if DEBUG else config_dict['production']
 
 app = create_app(app_config)

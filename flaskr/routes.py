@@ -95,9 +95,8 @@ def admin():
 
 
 def get_download_path(filename):
-    # path for ./front/public/images/
     root_path = os.path.dirname(current_app.instance_path)
-    upload_path = os.path.normpath(os.path.join(root_path, current_app.config['UPLOAD_FOLDER'], filename))
+    upload_path = os.path.join(root_path, current_app.config['UPLOAD_FOLDER'], filename)
     return upload_path
 
 

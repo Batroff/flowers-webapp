@@ -20,7 +20,7 @@ export default function About(props) {
   })
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/flowers')
+    fetch('/api/flowers')  /* local machine -> change to http://localhost:5000/api/flowers */
         .then(res => res.json())
         .then(items => setItems(items), error => console.log(error))
   }, [itemsCount])
